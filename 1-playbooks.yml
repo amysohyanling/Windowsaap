@@ -9,6 +9,7 @@
 
     - name: print windows services
       ansible.builtin.debug:
+        msg: "Service {{ service_info.display_name }} is {{ service_info.state }}"
         var: service_info
 
 
