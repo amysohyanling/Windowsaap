@@ -7,6 +7,10 @@
       ansible.windows.win_service_info:
       register: service_info 
 
+    - name: print windows services
+      ansible.builtin.debug:
+        var: service_info
+
 
 
   
