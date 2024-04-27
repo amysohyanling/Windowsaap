@@ -11,7 +11,7 @@
       ansible.builtin.debug:
         msg: "Service {{ item.display_name }} is {{ item.state }}"
       when: item.state == 'started' 
-      loop: "{{ service_info.services }}"
+      vars: "{{ service_info.services }}"
 
 
 
