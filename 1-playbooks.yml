@@ -10,7 +10,8 @@
     - name: print windows services
       ansible.builtin.debug:
         msg: "Service {{ item.display_name }} is {{ item.state }}"
-      loop: "{{ service_info.service }}"
+      loop: "{{ service_info.services }}"
+
 
 
 
