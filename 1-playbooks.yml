@@ -1,0 +1,13 @@
+---
+- name: pre check for windows OS
+  hosts: all
+  become: true
+  tasks:
+    
+    - name: show windows services
+      ansible.windows.win_service_info:
+      register: service_info 
+
+
+
+  
