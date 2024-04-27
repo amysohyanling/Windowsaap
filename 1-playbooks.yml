@@ -1,7 +1,6 @@
 ---
 - name: pre check for windows OS
   hosts: all
-  become: runas
   tasks: 
     
     - name: show windows services
