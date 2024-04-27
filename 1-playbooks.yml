@@ -10,6 +10,7 @@
     - name: print windows services that is started
       # Content suggestion provided by Ansible Lightspeed
       ansible.builtin.debug:
+        msg: "Service {{ item.display_name }} is {{ item.state }}"
         var: service_info.services_started
 
 
