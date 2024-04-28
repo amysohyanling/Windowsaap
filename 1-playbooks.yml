@@ -18,6 +18,7 @@
       register: disk_info
 
     - name: Print free space on drive C
+      # Content suggestion provided by Ansible Lightspeed
       ansible.builtin.debug:
-        msg: "Free space on drive C: {{ disk_info.ansible_facts.ansible_disks.partitions.size_available }} bytes"
-      when: disk_info.ansible_facts.ansible_disks.partitions.drive_letter == "C"
+        msg: Free space on drive C is {{ disk_info.ansible_facts.ansible_mounts[0].free_space
+          }} GB
