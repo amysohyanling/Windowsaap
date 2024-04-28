@@ -20,4 +20,4 @@
 
     - name: Print free space on drive C
       ansible.builtin.debug:
-        msg: "{{ disk_info.ansible_facts.ansible_disks.partitions[1].volumes.size_remaining }}"
+        msg: "{{ disk_info.ansible_facts.ansible_disks.partitions.volumes.size_remaining }}"
