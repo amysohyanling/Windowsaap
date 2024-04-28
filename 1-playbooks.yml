@@ -19,6 +19,5 @@
 
     - name: Print free space on drive C
       ansible.builtin.debug:
-        msg: "Free space on drive C: {{ item.ansible_facts.ansible_disks.partitions.size_available }} bytes"
-      loop: "{{ disk_info }}"
-      when: item.ansible_facts.ansible_disks.partitions.drive_letter == "C"
+        msg: "Free space on drive C: {{ disk_info.ansible_facts.ansible_disks.partitions.size_available }} bytes"
+      when: disk_info.ansible_facts.ansible_disks.partitions.drive_letter == "C"
