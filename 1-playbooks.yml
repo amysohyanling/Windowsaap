@@ -14,7 +14,7 @@
       when: item.state == 'started'
 
     - name: Get free space on drive c
-      ansible.windows.win_disk_info:
+      community.windows.win_disk_facts:
         drive_letter: C
       register: disk_info
 
