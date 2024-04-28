@@ -15,9 +15,9 @@
 
     - name: Retrieve free space on drive C
       community.windows.win_disk_facts:
+        filter: "volumes"
       register: disk_info
 
     - name: Print free space on drive C
-      # Content suggestion provided by Ansible Lightspeed
       ansible.builtin.debug:
-        var: disk_info.ansible_facts.disk[0].size    
+        var: disk_info.ansible_facts.ansible_disks.partitions.    
