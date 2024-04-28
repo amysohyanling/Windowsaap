@@ -10,7 +10,7 @@
     - name: print windows services that is started
       ansible.builtin.debug:
         var: service_info.services
-      when: "'started' in service_info.services['state']"
+      when: "'started' in service_info.services | map(attribute='state') | list"
       
 
 
