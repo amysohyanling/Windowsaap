@@ -15,7 +15,6 @@
 
     - name: Get free space on drive c
       community.windows.win_disk_facts:
-        drive_letter: C
       register: disk_info
 
     - name: Print free space on C drive
