@@ -13,12 +13,12 @@
       loop: "{{ service_info.services }}"
       when: item.state == 'started'
 
-    - name: Get free space on C: drive
+    - name: Get free space on drive c
       ansible.windows.win_disk_info:
         drive_letter: C
       register: disk_info
 
-    - name: Print free space on C: drive
+    - name: Print free space on C drive
       ansible.builtin.debug:
         msg: "Free space on C: drive: {{ disk_info.drives['C'].free_bytes | int / 1024 / 1024 / 1024 }} GB"
 
