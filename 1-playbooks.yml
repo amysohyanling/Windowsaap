@@ -15,7 +15,7 @@
 
     - name: Retrieve free space on drive C
       community.windows.win_disk_facts:
-        filter: "volumes"
+        filter: volumes
       register: disk_info
 
     - name: Print free space on drive C
