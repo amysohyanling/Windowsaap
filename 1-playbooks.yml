@@ -20,5 +20,6 @@
     - name: Print free space on drive C
       # Content suggestion provided by Ansible Lightspeed
       ansible.builtin.debug:
+        var: disk_info
         msg: Free space on drive C is {{ disk_info.ansible_facts['ansible_disks']['partitions']['spartitions.size_available'] }} GB
     
