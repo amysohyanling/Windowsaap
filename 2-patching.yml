@@ -1,0 +1,14 @@
+---
+- name: pre check for windows OS
+  hosts: all
+  tasks: 
+
+    - name: Search all updates for windows OS
+      ansible.windows.win_updates:
+        category_names: "*"
+        state: searched
+      register: wu_result
+
+    - name: print out wu_result
+      ansible.builtin.debug:
+        var: wu_result

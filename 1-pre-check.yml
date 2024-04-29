@@ -21,3 +21,5 @@
     - name: Print free space on drive C
       ansible.builtin.debug:
         msg: "Drive C size available is : {{ ansible_facts.disks[0].partitions[1].volumes[0].size_remaining | int / (1024 ** 3) }} GB."
+
+    
