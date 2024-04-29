@@ -17,4 +17,3 @@
       community.libvirt.virt:
         command: list_vms
         state: running
-      register: running_vms
