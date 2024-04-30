@@ -15,5 +15,5 @@
 
     - name: List only running VMs
       community.libvirt.virt:
-        command: list_vms
+        win_command: list_vms
         state: running
