@@ -23,5 +23,5 @@
   tasks:
 
     - name: take virsh snapshot 
-      ansible.builtin.command: virsh snapshop-create-as --domain windowsaap --name "amy-windowsaap" 
+      ansible.builtin.command: virsh snapshot-create-as --domain windowsaap --name "amy-windowsaap" 
       delegate_to: main-kvm
