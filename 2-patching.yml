@@ -20,7 +20,7 @@
       loop: "{{ wu_result.updates.keys() }}"
 
 - name: take snapshot 
-  hosts: main-kvm
+  hosts: all
   tasks:
 
     - name: take virsh snapshot 
