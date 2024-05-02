@@ -8,7 +8,7 @@
         category_names: "*"
         state: searched
       register: wu_result
-      ignore_unreachable: true
+      ignore_errors: true
 
     - name: debug wu_result
       ansible.builtin.debug:
