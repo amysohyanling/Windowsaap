@@ -17,3 +17,7 @@
       ansible.builtin.debug:
         msg: "{{ wu_result.updates[item].kb | flatten | list }}"
       loop: "{{ wu_result.updates.keys() }}"
+
+    - name: take virsh snapshot 
+      ansible.builtin.command: virsh snapshop-create-as --domain windowsaap --name "amy-windowsaap" 
+      delegate_to: localhost
