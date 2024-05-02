@@ -11,4 +11,4 @@
 
     - name: print out wu_result KB list
       ansible.builtin.debug:
-        msg: "{{ wu_result.updates | map(attribute='kb') | flatten | list }}" 
+        msg: "{{ wu_result.updates | map(attribute='kb') | map('default', 'Unknown') | flatten | list }}" 
