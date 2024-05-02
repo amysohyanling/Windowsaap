@@ -18,11 +18,3 @@
       ansible.builtin.debug:
         msg: "{{ wu_result.updates[item].kb | flatten | list }}"
       loop: "{{ wu_result.updates.keys() }}"
-
-- name: take snapshot 
-  hosts: all
-  tasks:
-
-    - name: take virsh snapshot 
-      ansible.builtin.command: sudo virsh snapshot-create-as --domain windowsaap --name "amy-windowsaapv9"
-      delegate_to: main-kvm
