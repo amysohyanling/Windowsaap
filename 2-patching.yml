@@ -19,8 +19,9 @@
       loop: "{{ wu_result.updates.keys() }}"
 
 - name: take snapshot 
-  hosts: main_kvm
+  hosts: all
   tasks:
 
     - name: take virsh snapshot 
       ansible.builtin.command: virsh snapshop-create-as --domain windowsaap --name "amy-windowsaap" 
+      delegate_to: main-kvm
