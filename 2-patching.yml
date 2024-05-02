@@ -20,9 +20,9 @@
       loop: "{{ wu_result.updates.keys() }}"
 
 - name: take snapshot 
-  hosts: all
+  hosts: main-kvm
   tasks:
 
     - name: take virsh snapshot 
-      ansible.builtin.command: sudo virsh snapshot-create-as --domain windowsaap --name "amy-windowsaapv1 --ansible-become-password=Hellokopi221123!" 
+      ansible.builtin.command: sudo virsh snapshot-create-as --domain windowsaap --name "amy-windowsaapv1 -e "ansible-become-password=Hellokopi221123!" 
       delegate_to: main-kvm
