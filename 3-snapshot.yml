@@ -4,3 +4,4 @@
 
     - name: take virsh snapshot 
       ansible.builtin.command: sudo virsh snapshot-create-as --domain windowsaap --name "amy-windowsaapv10"
+      
