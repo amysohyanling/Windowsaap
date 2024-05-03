@@ -10,4 +10,4 @@
     - name: deploy jinja file
       ansible.windows.win_template:
         src: post.j2
-        dest: C:\Downloads\windows.html
+        dest: C:\Users\Administrator\Downloads\windows.html
