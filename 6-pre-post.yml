@@ -6,3 +6,8 @@
     - name: retrieve windows information
       ansible.windows.win_service_info:
       register: pre_post 
+
+    - name: deploy jinja file
+      ansible.windows.win_template:
+        src: post.j2
+        dest: C:\Downloads\windows.html
