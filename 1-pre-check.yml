@@ -6,6 +6,7 @@
     - name: show windows services
       ansible.windows.win_service_info:
       register: service_info 
+      ignore_errors: true
 
     - name: print windows services that are started
       ansible.builtin.debug:
