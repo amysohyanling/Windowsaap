@@ -8,8 +8,9 @@
       register: service_info 
 
     - name: show started services only
-      ansible.builtin.set_fact:
-        service_info_running: "{{ service_info.services | selectattr('state', 'equalto', 'started') | map(attribute='display_name') | list }}"
+      ansible.builtin.set_stats:
+        data:
+          service_info_running: "{{ service_info.services | selectattr('state', 'equalto', 'started') | map(attribute='display_name') | list }}"
         
     - name: Retrieve free space on drive C
       community.windows.win_disk_facts:
