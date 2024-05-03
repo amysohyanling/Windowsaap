@@ -1,0 +1,9 @@
+---
+- name: Start windows patches
+  hosts: all
+  tasks: 
+
+    - name: updates window patches
+      ansible.windows.win_updates:
+        category_names: '*'
+        reboot: true
