@@ -1,0 +1,17 @@
+---
+- name: Do post patching check
+  hosts: all
+  tasks: 
+
+    - name: show windows services
+      ansible.windows.win_service_info:
+      register: service_info 
+
+    - name: print windows services that are started
+      ansible.builtin.debug:
+        msg: "Service {{ item.display_name }} is started"
+      loop: "{{ service_info.services }}"
+      when: item.state == 'started'
+
+    - name: Compare Pre-check services with  post-check services
+    
