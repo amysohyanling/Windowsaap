@@ -3,5 +3,5 @@
   tasks:
 
     - name: take virsh snapshot 
-      ansible.builtin.command: sudo virsh snapshot-create-as --domain {{ windows-domain }} --name "amy-windowsaapv7"
+      ansible.builtin.command: sudo virsh snapshot-create-as --domain {{ windows_domain }} --name "amy-windowsaapv7"
 
