@@ -6,25 +6,22 @@
     - name: show windows services
       ansible.windows.win_service_info:
       register: service_info 
-      ignore_errors: true
 
     - name: print windows services that are started
       ansible.builtin.debug:
         msg: "Service {{ item.display_name }} is started"
       loop: "{{ service_info.services }}"
       when: item.state | map(attribute='started')
-      ignore_errors: true
 
     - name: save in set_stats
       ansible.builtin.set_stats:
         data:
           service_info: "{{ service_info }}"
-
+        
     - name: Retrieve free space on drive C
       community.windows.win_disk_facts:
         filter: volumes
       register: disk_info
-      ignore_errors: true
 
     - name: Print free space on drive C
       ansible.builtin.debug:
