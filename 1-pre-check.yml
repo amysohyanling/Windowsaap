@@ -12,6 +12,7 @@
         msg: "Service {{ item.display_name }} is started"
       loop: "{{ service_info.services }}"
       when: item.state | map(attribute='started')
+      ignore_errors: true
 
     - name: save in set_stats
       ansible.builtin.set_stats:
