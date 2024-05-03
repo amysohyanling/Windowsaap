@@ -9,6 +9,7 @@
         state: searched
       register: wu_result
       ignore_errors: true
+      
 
     - name: debug wu_result
       ansible.builtin.debug:
@@ -18,7 +19,3 @@
       ansible.builtin.debug:
         msg: "{{ wu_result.updates[item].kb | flatten | list }}"
       loop: "{{ wu_result.updates.keys() }}"
-
-    - name: take virsh snapshot 
-      ansible.builtin.command: sudo -i virsh snapshot-create-as --domain windowsaap --name "amy-windowsaapv9"
-      delegate_to: main-kvm
