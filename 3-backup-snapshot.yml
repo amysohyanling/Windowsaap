@@ -3,6 +3,6 @@
   tasks:
 
     - name: take virsh snapshot 
-      ansible.builtin.command: sudo virsh snapshot-create-as --domain windowsaap --name "amy-windowsaapv9"
+      ansible.builtin.command: sudo virsh snapshot-create-as --domain windowsaap --name "amy-windowsaapv8"
       register: snapshot
 
