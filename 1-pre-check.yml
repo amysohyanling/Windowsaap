@@ -20,11 +20,11 @@
         data:
           service_info: "{{ service_info }}"
 
-
     - name: Retrieve free space on drive C
       community.windows.win_disk_facts:
         filter: volumes
       register: disk_info
+      ignore_errors: true
 
     - name: Print free space on drive C
       ansible.builtin.debug:
