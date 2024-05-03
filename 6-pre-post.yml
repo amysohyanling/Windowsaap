@@ -1,0 +1,8 @@
+---
+- name: pre-post file
+  hosts: all
+  tasks:
+
+    - name: retrieve windows information
+      ansible.windows.win_service_info:
+      register: pre_post 
