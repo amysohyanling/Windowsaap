@@ -7,10 +7,7 @@
       ansible.windows.win_service_info:
       register: post_service_info 
 
-    - name: print windows services that are started
-      ansible.builtin.debug:
-        msg: "Service {{ item.display_name }} is started"
-      loop: "{{ post_service_info.services }}"
-      when: item.state == 'started'
-
-    - name: Compare Pre-check services with  post-check services
+    - name: show started services only
+      ansible.builtin.set_fact:
+        post_service_info_running: "{{ service_info.services | selectattr('state', 'equalto', 'started') | map(attribute='display_name') | list }}"
+        
