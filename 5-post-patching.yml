@@ -11,3 +11,7 @@
       ansible.builtin.set_fact:
         post_service_info_running: "{{ service_info.services | selectattr('state', 'equalto', 'started') | map(attribute='display_name') | list }}"
         
+    - name: show the difference
+      ansible.utils.fact_diff:
+        before: "{{ service_info_running | ansible.utils.to_paths }}"
+        after: "{{ post_service_info_running | ansible.utils.to_paths }}"
