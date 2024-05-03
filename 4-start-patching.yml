@@ -3,7 +3,16 @@
   hosts: all
   tasks: 
 
-    - name: updates window patches
-      ansible.windows.win_updates:
-        category_names: '*'
-        reboot: true
+    - name: Install updates
+      block:
+        - name: Run win_updates
+          ansible.windows.win_updates:
+            category_names: '*'
+            reboot: yes
+          timeout: 1500
+          
+      rescue:
+        - name: Run win_updates again
+          ansible.windows.win_updates:
+            category_names: '*'
+            reboot: yes
