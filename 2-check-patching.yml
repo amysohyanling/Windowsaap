@@ -9,8 +9,8 @@
         state: searched
       register: wu_result
 
-    - name: print out wu_result KB list
+    - name: Create list of kb in precheck
       ansible.builtin.set_stats:
-        data:
-          wu_result_updates: "{{ wu_result.updates[item].kb | flatten | list }}"
-        loop: "{{ wu_result.updates.keys() }}"
+        data: 
+          wu_result_updates: "{{ wu_result.updates | dict2items | map(attribute='value.kb') | list }}" 
+

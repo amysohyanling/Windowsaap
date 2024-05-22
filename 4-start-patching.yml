@@ -22,9 +22,9 @@
         category_names: "*"
         state: searched
       register: wu_result_after
+  
 
-    - name: print out wu_result KB list
+    - name: Create list of kb in precheck
       ansible.builtin.set_stats:
-        data:
-          wu_result_updates_after: "{{ wu_result_after.updates[item].kb | flatten | list }}"
-      loop: "{{ wu_result_after.updates.keys() }}"
+        data: 
+          wu_result_updates_after: "{{ wu_result_after.updates | dict2items | map(attribute='value.kb') | list }}" 
