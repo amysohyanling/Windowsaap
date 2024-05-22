@@ -13,4 +13,4 @@
       ansible.builtin.set_stats:
         data:
           wu_result_updates: "{{ wu_result.updates[item].kb | flatten | list }}"
-      loop: "{{ wu_result.updates.keys() }}"
+        loop: "{{ wu_result.updates.keys() }}"
