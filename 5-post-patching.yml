@@ -8,8 +8,9 @@
       register: post_service_info 
 
     - name: show started services only
-      ansible.builtin.set_fact:
-        post_service_info_running: "{{ post_service_info.services | selectattr('state', 'equalto', 'started') | map(attribute='display_name') | list }}"
+      ansible.builtin.set_stats:
+        data:
+          post_service_info_running: "{{ post_service_info.services | selectattr('state', 'equalto', 'started') | map(attribute='display_name') | list }}"
         
     - name: show the difference
       ansible.utils.fact_diff:
