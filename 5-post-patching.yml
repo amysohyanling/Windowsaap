@@ -12,11 +12,11 @@
         data:
           post_service_info_running: "{{ post_service_info.services | selectattr('state', 'equalto', 'started') | map(attribute='display_name') | list }}"
         
-    - name: show the difference
-      ansible.utils.fact_diff:
-        before: "{{ service_info_running }} "
-        after: "{{ post_service_info_running }}"
-      register: p_p_diff
+#    - name: show the difference
+#      ansible.utils.fact_diff:
+#        before: "{{ service_info_running }} "
+#        after: "{{ post_service_info_running }}"
+#      register: p_p_diff
 
 
   
