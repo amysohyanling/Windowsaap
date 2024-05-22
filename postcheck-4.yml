@@ -1,0 +1,28 @@
+---
+- name: Post Patch Checks
+  hosts: all
+  
+  tasks: 
+  - name: Add Delay (in case of any false postive running service result)
+    ansible.builtin.pause:
+      minutes: 5
+  
+  - name: Get running services of Windows VM
+    ansible.windows.win_service_info:
+    register: service_info2  
+
+  - name: Create a list of running services
+    ansible.builtin.set_fact:
+      service_info2_running: "{{ service_info2.services | selectattr('state', 'equalto', 'started') | map(attribute='display_name') | list }}"
+
+#  - name: compare pre chk vs post chk
+#    ansible.utils.fact_diff: 
+#      before: "{{ service_info_running }}"
+#      after: "{{ service_info2_running }}"
+#    register: service_diff_result
+
+  - name: Generate a Post-Patch HTML report
+    ansible.builtin.template:
+      src: postreport.html.j2
+      dest: /home/oliang/ReportOuput/{{inventory_hostname}}_postreport.html
+    delegate_to: vm_host

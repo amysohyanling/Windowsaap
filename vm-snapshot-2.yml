@@ -1,0 +1,26 @@
+---
+- name: Taking VM Snapshot
+  hosts: all
+  become: yes
+  gather_facts: no
+
+  tasks:
+
+    - name: Getting date and time
+      ansible.builtin.set_fact:        
+        end_time: "{{ lookup('pipe','date \"+%T_%Z_%F\"') }}"
+      delegate_facts: true
+      run_once: true
+
+
+    - name: Take VM Snapshot
+      ansible.builtin.shell: "virsh snapshot-create-as --domain {{ kvm_vm_name }} --name {{ kvm_vm_name }}_{{ end_time }}"
+      register: vm_snapshot_result
+      delegate_to: vm_host
+      ignore_errors: true
+
+    - name: Save information of hostname for subsequent workflow
+      set_stats:
+        data:
+          snapshot_ok_vms: "{{ (snapshot_ok_vms | default([]))  + [inventory_hostname] }}"
+      when: "'created' in vm_snapshot_result.stdout"

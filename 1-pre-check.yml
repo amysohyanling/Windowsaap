@@ -11,7 +11,7 @@
       ansible.builtin.set_stats:
         data:
           service_info_running: "{{ service_info.services | selectattr('state', 'equalto', 'started') | map(attribute='display_name') | list }}"
-        
+
     - name: Retrieve free space on drive C
       community.windows.win_disk_facts:
         filter: volumes
@@ -21,3 +21,4 @@
       ansible.builtin.debug:
         msg: "Drive C size available is : {{ ansible_facts.disks[0].partitions[1].volumes[0].size_remaining | int / (1024 ** 3) }} GB."
       failed_when: "( ansible_facts.disks[0].partitions[1].volumes[0].size_remaining | int / (1024 ** 3) ) < 2 "
+
