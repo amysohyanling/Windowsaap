@@ -9,8 +9,4 @@
       register: windows_snapshot
       ignore_errors: true
 
-    - name: Print snapshot
-      ansible.builtin.debug:
-        debug:
-          var: snapshot_result
 
