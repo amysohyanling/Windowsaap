@@ -8,7 +8,7 @@
       register: pre_post 
 
     - name: deploy jinja file
-      ansible.windows.win_template:
+      ansible.builtin.template:
         src: post.html.j2
         dest: /home/amysoh/p_p_report.html
       delegate_to: main-kvm
