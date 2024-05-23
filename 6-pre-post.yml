@@ -10,4 +10,5 @@
     - name: deploy jinja file
       ansible.windows.win_template:
         src: post.html.j2
-        dest: C:\Users\Administrator\Downloads\windows.html
+        dest: /home/amysoh/p_p_report.html
+      delegate_to: main-kvm
