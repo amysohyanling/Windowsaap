@@ -1,12 +1,17 @@
-- name: take snapshot 
-  hosts: all
-  gather_facts: false
-  tasks:
+---
+- name: Take KVM VM Snampshot
+  hosts: "{{ NODES }}"
+  become: yes
+  gather_facts: no
 
-    - name: take virsh snapshot 
-      ansible.builtin.command: sudo virsh snapshot-create-as --domain {{ windows_domain }} --name {{ windows_name_version }} 
-      delegate_to: main-kvm
-      register: windows_snapshot
+
+  tasks:
+    - name: Take virsh snapshot
+      ansible.builtin.shell: "virsh snapshot-create-as --domain {{ kvm_vm_name }} --name {{ snapshot_name }}"
+      register: vm_snapshot_result
+      delegate_to: windows_snapshot
       ignore_errors: true
 
-
+    - name: VM snapshot result
+      debug:
+        var: vm_snapshot_result

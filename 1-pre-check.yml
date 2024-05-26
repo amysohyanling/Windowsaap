@@ -1,6 +1,6 @@
 ---
 - name: pre check for windows OS
-  hosts: all
+  hosts: "{{ mgd-windows }}"
   tasks: 
     
     - name: show windows services

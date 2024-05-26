@@ -2,29 +2,22 @@
 - name: Start windows patches
   hosts: all
   tasks: 
-
-    - name: Install updates
-      block:
-        - name: Run win_updates
-          ansible.windows.win_updates:
-            category_names: '*'
-            reboot: yes
-          timeout: 1500
-          
-      rescue:
-        - name: Run win_updates again
-          ansible.windows.win_updates:
-            category_names: '*'
-            reboot: yes
+    - name: Run win_updates again
+      ansible.windows.win_updates:
+        category_names: '*'
+        reboot: yes
+      async: 1000
+      poll: 5
 
     - name: Search all updates for windows OS
       ansible.windows.win_updates:
         category_names: "*"
         state: searched
-      register: wu_result_after
-  
+      register: wu_result_after  
 
     - name: Create list of kb in precheck
       ansible.builtin.set_stats:
         data: 
           wu_result_updates_after: "{{ wu_result_after.updates | dict2items | map(attribute='value.kb') | list }}" 
+
+#get the KB that 

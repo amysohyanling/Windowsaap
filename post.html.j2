@@ -52,7 +52,7 @@
            {% for kb in kb_list %}
                <tr>
                    <td>{{ kb }}</td>
-                   <td>{{ status if kb in status_element else 'Installed'}}</td>
+                   <td>{{ 'Installed' if kb in status_element else 'Not Installed' }}</td>
                </tr>
            {% endfor %}
        {% endfor %}
