@@ -1,6 +1,6 @@
 ---
 - name: pre check for windows OS
-  hosts: all
+  hosts: windows-mgd
   tasks: 
 
     - name: Search all updates for windows OS

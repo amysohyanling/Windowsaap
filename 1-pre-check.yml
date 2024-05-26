@@ -1,6 +1,6 @@
 ---
 - name: pre check for windows OS
-  hosts: windows-mgd 
+  hosts: windows-mgd
   tasks: 
     
     - name: show windows services

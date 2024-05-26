@@ -1,6 +1,6 @@
 ---
 - name: Start windows patches
-  hosts: all
+  hosts: windows-mgd
   tasks: 
     - name: Run win_updates again
       ansible.windows.win_updates:

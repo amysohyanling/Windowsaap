@@ -1,6 +1,6 @@
 ---
 - name: Do post patching check
-  hosts: all
+  hosts: windows-mgd
   tasks: 
 
     - name: show windows services

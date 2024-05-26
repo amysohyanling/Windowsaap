@@ -1,6 +1,6 @@
 ---
 - name: Take KVM VM Snampshot
-  hosts: "{{ NODES }}"
+  hosts: main-kvm
   become: yes
   gather_facts: no
 
