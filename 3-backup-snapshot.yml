@@ -7,7 +7,7 @@
 
   tasks:
     - name: Take virsh snapshot
-      ansible.builtin.shell: "virsh snapshot-create-as --domain {{ kvm_vm_name }} --name {{ snapshot_name }}"
+      ansible.builtin.shell: "virsh snapshot-create-as --domain {{ windows_domain }} --name {{ windows_name_version }}"
       register: vm_snapshot_result
       ignore_errors: true
 
