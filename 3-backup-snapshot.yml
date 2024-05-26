@@ -1,6 +1,6 @@
 ---
 - name: Take KVM VM Snapshot
-  hosts: all
+  hosts: main-kvm
   become: yes
   gather_facts: no
 
