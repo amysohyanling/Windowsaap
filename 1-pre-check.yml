@@ -9,8 +9,8 @@
 
     - name: Example from an Ansible Playbook
       ansible.builtin.ping:
-      delegate_to: main_kvm
-    
+      delegate_to: 192.168.124.1
+      
     - name: show windows services
       ansible.windows.win_service_info:
       register: service_info 
