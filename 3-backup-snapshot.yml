@@ -3,7 +3,10 @@
   hosts: main-kvm
   become: yes
   gather_facts: no
-
+  vars:
+    ansible_user: '{{ mgd_username }}'
+    ansible_become_password: '{{ mgd_password }}'
+    ansible_password: '{{ mgd_password }}'
 
   tasks:
     - name: Take virsh snapshot
