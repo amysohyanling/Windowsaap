@@ -1,15 +1,15 @@
 ---
 - name: pre check for windows OS
   hosts: all
-  vars:
-    ansible_user: '{{ mgd_username }}'
-    ansible_become_password: '{{ mgd_password }}'
-    ansible_password: '{{ mgd_password }}'
-
   tasks: 
     - name: Example from an Ansible Playbook
       ansible.builtin.ping:
       delegate_to: main_kvm
+      vars:
+        ansible_user: '{{ mgd_username }}'
+        ansible_become_password: '{{ mgd_password }}'
+        ansible_password: '{{ mgd_password }}'
+
     
     - name: show windows services
       ansible.windows.win_service_info:
