@@ -1,6 +1,6 @@
 ---
 - name: pre check for windows OS
-  hosts: mgd-windows
+  hosts: windows-mgd
   tasks: 
 
     - name: Example from an Ansible Playbook
