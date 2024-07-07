@@ -6,8 +6,6 @@
       ansible.windows.win_updates:
         category_names: '*'
         reboot: yes
-      async: 1000
-      poll: 5
 
     - name: Search all updates for windows OS
       ansible.windows.win_updates:
