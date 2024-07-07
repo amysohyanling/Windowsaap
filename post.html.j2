@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <html>
 <head>
     <title>System Information</title>
@@ -37,3 +38,45 @@
 
 </body>
 </html>
+=======
+<!DOCTYPE html>
+<html>
+<head>
+    <title>System Information</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        h1 {
+            color: #333;
+        }
+        .info {
+            margin-bottom: 20px;
+        }
+        .info label {
+            font-weight: bold;
+            display: inline-block;
+            width: 150px;
+        }
+    </style>
+</head>
+<body>
+    <h1>System Information</h1>
+    <div class="info">
+        <label>Hostname:</label>
+        <span>{{ ansible_facts['hostname'] }}</span>
+    </div>
+    <div class="info">
+        <label>OS Version:</label>
+        <span>{{ ansible_facts['os_family'] }} {{ ansible_facts['distribution_version'] }}</span>
+    </div>
+    <div class="info">
+        <label>IP Address:</label>
+        <span>{{ ansible_facts['default_ipv4']['address'] }}</span>
+    </div>
+
+
+</body>
+</html>
+>>>>>>> origin/main
