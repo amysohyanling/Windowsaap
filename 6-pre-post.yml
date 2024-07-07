@@ -7,6 +7,15 @@
 #      ansible.windows.win_service_info:
 #      register: pre_post 
 
+    - name: Get running services of Windows volumes
+      ansible.windows.win_service_info:
+      register: service_info
+
+    - name: show started services only
+      ansible.builtin.set_stats:
+        data:
+          service_info_running_2: "{{ service_info.services | selectattr('state', 'equalto', 'started') | map(attribute='display_name') | list }}"
+
     - name: deploy jinja file
       ansible.builtin.template:
         src: post.html.j2
