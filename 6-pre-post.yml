@@ -6,6 +6,13 @@
 #    - name: retrieve windows information
 #      ansible.windows.win_service_info:
 #      register: pre_post 
+    - name: Example from an Ansible Playbook
+      ansible.builtin.ping:
+      delegate_to: main-kvm
+      vars:
+        ansible_user: '{{ mgd_username }}'
+        ansible_become_password: '{{ mgd_password }}'
+        ansible_password: '{{ mgd_password }}'
 
     - name: Get running services of Windows volumes
       ansible.windows.win_service_info:
