@@ -33,9 +33,9 @@
            <th>Windows Version</th>
        </tr>
        <tr>
-           <td>{{ ansible_facts['fqdn'] }}</td>
-           <td>{{ ansible_host }}</td>
-           <td>{{ ansible_distribution }}</td>
+           <td>{{ ansible_facts['hostname'] }}</td>
+           <td>{{ ansible_facts['interfaces']['ipv4']['address'] }}</td>
+           <td>{{ ansible_facts['distribution_version'] }}</td>
        </tr>
    </table>
   
